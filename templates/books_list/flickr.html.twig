@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flickr{% endblock %}
+
+{% block body %}
+  
+   <h1> Liste Flickr </h1>
+  <div class="container">
+    <div class="row">
+    {% for flickr in flickrs %}
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+    
+ 
+    <div class="card" style="width: 18rem; margin:9px">
+      <img class="img-fluid" src="{{flickr.url}}" alt="Card image cap" >
+      <div class="card-body">
+      <h5 class="card-title">{{flickr.title}}</h5>
+   
+  </div>
+ 
+
+</div>
+ 
+
+   
+            </div>
+             {%  endfor %}
+</div>
+</div>
+
+{% endblock %}

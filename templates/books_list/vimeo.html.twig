@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vimeo{% endblock %}
+
+{% block body %}
+  
+
+
+   <h1> Liste  de Vimeo </h1>
+  <div class="container">
+    <div class="row">
+      {% for vimeo in vimeos %}
+    <div class="col-sm-6 col-md-6  ">
+    
+ 
+    
+    
+        <iframe width="560" height="315" src="{{vimeo.url}}" frameborder="0" allowfullscreen></iframe>
+      </iframe>
+
+      <h4>{{vimeo.title}}</h4>
+   
+
+ 
+
+
+ 
+
+   
+            </div>
+             {%  endfor %}
+</div>
+</div>
+{% endblock %}

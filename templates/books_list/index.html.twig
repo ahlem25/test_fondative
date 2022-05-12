@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BooksListController!{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+
+
+ 
+<h1> Liste de liens </h1>
+
+
+<table class="table table-striped">
+<thead>
+<tr>
+<td>#</th>
+<td>Url</th>
+<td>Provider</th>
+<td>Author</th>
+
+<td>Title</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for bookmark in bookmarks  %}
+<tr>
+<td>{{bookmark.id}}</td>
+<td>{{bookmark.url}}</td>
+<td>{{bookmark.provider}}</td>
+<td>{{bookmark.author}}</td>
+
+<td>{{bookmark.title}}</td>
+<td>
+<form  method="post" action="{{ path('app_bookmarks_delete',{id: bookmark.id})}}" style="display:inline-block" onsubmit="return confirm('Êtes-vous vraiment sur')">
+<input type="hidden" name="_method" value="DELETE">
+<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ bookmark.id) }}">
+<button  class="btn btn-danger">Supprimer</button>
+
+</form>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+
+</div>
+  
+{% endblock %}
